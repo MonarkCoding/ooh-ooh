@@ -1,0 +1,72 @@
+@import 'tailwindcss';
+@import '@ooh/ui/tokens.css';
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/space-grotesk';
+
+/* Les classes utilitaires peuvent aussi être utilisées dans l'UI partagée et les jeux. */
+@source '../../../packages/ui/src';
+@source '../../../games';
+
+/* Expose les design tokens à Tailwind (bg-bg, text-muted, font-display…). */
+@theme inline {
+	--color-bg: var(--ooh-bg);
+	--color-bg-elevated: var(--ooh-bg-elevated);
+	--color-surface: var(--ooh-surface);
+	--color-surface-hover: var(--ooh-surface-hover);
+	--color-border: var(--ooh-border);
+	--color-border-strong: var(--ooh-border-strong);
+	--color-text: var(--ooh-text);
+	--color-muted: var(--ooh-text-muted);
+	--color-subtle: var(--ooh-text-subtle);
+	--color-accent: var(--ooh-accent);
+	--color-accent-strong: var(--ooh-accent-strong);
+	--color-accent-2: var(--ooh-accent-2);
+	--color-success: var(--ooh-success);
+	--color-danger: var(--ooh-danger);
+	--color-player-1: var(--ooh-player-1);
+	--color-player-2: var(--ooh-player-2);
+	--color-player-3: var(--ooh-player-3);
+	--color-player-4: var(--ooh-player-4);
+	--font-display: var(--ooh-font-display);
+	--font-sans: var(--ooh-font-body);
+}
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+		-webkit-text-size-adjust: 100%;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+	}
+
+	body {
+		min-height: 100dvh;
+		background: var(--ooh-bg);
+		color: var(--ooh-text);
+		font-family: var(--ooh-font-body);
+		font-feature-settings: 'cv11', 'ss01';
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	h1,
+	h2,
+	h3 {
+		font-family: var(--ooh-font-display);
+		letter-spacing: -0.02em;
+		text-wrap: balance;
+	}
+
+	::selection {
+		background: rgb(139 92 246 / 0.4);
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--ooh-accent-2);
+		outline-offset: 3px;
+	}
+}

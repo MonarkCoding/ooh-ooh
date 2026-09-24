@@ -3,8 +3,8 @@
 Plateforme web privée de mini-jeux multijoueurs en temps réel, pensée pour jouer
 **entre amis, à distance** (pendant un appel Discord), à **2–4 joueurs**.
 
-> Statut : **conception** — aucune ligne de code applicatif pour l'instant.
-> Les décisions ci-dessous sont issues de la phase de brainstorming.
+> Statut : **jalon 1 terminé** (fondations). Prochaine étape : comptes utilisateurs.
+> Voir [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ## Principes directeurs
 
@@ -15,10 +15,38 @@ Plateforme web privée de mini-jeux multijoueurs en temps réel, pensée pour jo
 
 ## Documentation
 
-| Document | Contenu |
-|---|---|
+| Document                                     | Contenu                                                                        |
+| -------------------------------------------- | ------------------------------------------------------------------------------ |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Stack, structure du monorepo, contrat d'un module de jeu, données, déploiement |
-| [docs/GAMES.md](docs/GAMES.md) | Règles et scoring des 4 jeux du MVP |
-| [docs/SECURITY.md](docs/SECURITY.md) | Modèle de menaces et mesures |
-| [docs/DESIGN.md](docs/DESIGN.md) | Direction visuelle et design tokens |
-| [docs/ROADMAP.md](docs/ROADMAP.md) | Jalons et journal des décisions |
+| [docs/GAMES.md](docs/GAMES.md)               | Règles et scoring des 4 jeux du MVP                                            |
+| [docs/SECURITY.md](docs/SECURITY.md)         | Modèle de menaces et mesures                                                   |
+| [docs/DESIGN.md](docs/DESIGN.md)             | Direction visuelle et design tokens                                            |
+| [docs/ROADMAP.md](docs/ROADMAP.md)           | Jalons et journal des décisions                                                |
+
+## Démarrage
+
+Prérequis : Node.js 22+ et pnpm 10 (`corepack enable`).
+
+```bash
+pnpm install
+pnpm dev          # http://localhost:5173
+```
+
+| Commande         | Rôle                                                      |
+| ---------------- | --------------------------------------------------------- |
+| `pnpm check`     | Tout vérifier (formatage, lint, frontières, types, tests) |
+| `pnpm lint`      | ESLint + vérification des frontières entre jeux           |
+| `pnpm typecheck` | Vérification des types de tous les paquets                |
+| `pnpm test`      | Tests unitaires (Vitest)                                  |
+| `pnpm build`     | Build de production (`apps/web/build`)                    |
+| `pnpm format`    | Formatage automatique (Prettier)                          |
+
+## Structure
+
+```
+apps/web/          Application SvelteKit (pages, en-têtes de sécurité, registre des jeux)
+packages/game-sdk/ Contrat d'un jeu : manifeste, GameDefinition, GameRunner, aléatoire
+packages/ui/       Design tokens et composants partagés (Button, Badge, Icon)
+games/*/           Un dossier = un jeu isolé
+tools/             Outillage (vérification des frontières de modules)
+```

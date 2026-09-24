@@ -1,0 +1,57 @@
+/*
+ * Design tokens — direction « Élégant & sombre » (docs/DESIGN.md).
+ * Source de vérité unique : l'application et les jeux n'utilisent que ces variables.
+ */
+:root {
+	color-scheme: dark;
+
+	/* Surfaces */
+	--ooh-bg: #0b0b12;
+	--ooh-bg-elevated: #12121c;
+	--ooh-surface: rgb(255 255 255 / 0.04);
+	--ooh-surface-hover: rgb(255 255 255 / 0.07);
+	--ooh-border: rgb(255 255 255 / 0.08);
+	--ooh-border-strong: rgb(255 255 255 / 0.16);
+
+	/* Texte */
+	--ooh-text: #ededf4;
+	--ooh-text-muted: #9a9ab0;
+	--ooh-text-subtle: #6c6c82;
+
+	/* Accents */
+	--ooh-accent: #8b5cf6;
+	--ooh-accent-strong: #a78bfa;
+	--ooh-accent-2: #22d3ee;
+	--ooh-success: #34d399;
+	--ooh-danger: #f87171;
+
+	/* Couleurs des joueurs (4 max) */
+	--ooh-player-1: #a78bfa;
+	--ooh-player-2: #22d3ee;
+	--ooh-player-3: #fbbf24;
+	--ooh-player-4: #f472b6;
+
+	/* Typographie */
+	--ooh-font-display:
+		'Space Grotesk Variable', 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+	--ooh-font-body: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+	/* Formes */
+	--ooh-radius-sm: 0.5rem;
+	--ooh-radius: 0.875rem;
+	--ooh-radius-lg: 1.5rem;
+	--ooh-blur: 16px;
+	--ooh-shadow-glow: 0 0 0 1px rgb(139 92 246 / 0.35), 0 8px 32px -8px rgb(139 92 246 / 0.55);
+
+	/* Mouvement */
+	--ooh-ease: cubic-bezier(0.22, 1, 0.36, 1);
+	--ooh-duration-fast: 150ms;
+	--ooh-duration: 250ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	:root {
+		--ooh-duration-fast: 0ms;
+		--ooh-duration: 0ms;
+	}
+}

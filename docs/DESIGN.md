@@ -7,19 +7,22 @@ dépoli, accents néon utilisés **avec parcimonie** pour guider l'attention
 (action principale, joueur actif, révélation). Élégant d'abord, ludique dans
 les moments clés (révélations, scores).
 
-## Design tokens (première proposition)
+## Design tokens
 
-| Token | Valeur | Usage |
-|---|---|---|
-| `--bg` | `#0B0B12` | Fond de l'application |
-| `--surface` | `rgba(255,255,255,0.04)` + flou 16 px | Cartes, panneaux (verre dépoli) |
-| `--border` | `rgba(255,255,255,0.08)` | Contours discrets |
-| `--text` | `#EDEDF4` | Texte principal |
-| `--text-muted` | `#8B8BA3` | Texte secondaire |
-| `--accent` | `#8B5CF6` (violet) | Action principale, focus |
-| `--accent-2` | `#22D3EE` (cyan) | Joueur actif, minuteurs |
-| `--success` | `#34D399` | Bonne réponse |
-| `--danger` | `#F87171` | Mauvaise réponse, erreurs |
+Source de vérité : [`packages/ui/src/tokens.css`](../packages/ui/src/tokens.css) (préfixe `--ooh-`),
+exposés à Tailwind dans `apps/web/src/app.css`.
+
+| Token          | Valeur                                | Usage                           |
+| -------------- | ------------------------------------- | ------------------------------- |
+| `--bg`         | `#0B0B12`                             | Fond de l'application           |
+| `--surface`    | `rgba(255,255,255,0.04)` + flou 16 px | Cartes, panneaux (verre dépoli) |
+| `--border`     | `rgba(255,255,255,0.08)`              | Contours discrets               |
+| `--text`       | `#EDEDF4`                             | Texte principal                 |
+| `--text-muted` | `#9A9AB0`                             | Texte secondaire                |
+| `--accent`     | `#8B5CF6` (violet)                    | Action principale, focus        |
+| `--accent-2`   | `#22D3EE` (cyan)                      | Joueur actif, minuteurs         |
+| `--success`    | `#34D399`                             | Bonne réponse                   |
+| `--danger`     | `#F87171`                             | Mauvaise réponse, erreurs       |
 
 Couleurs par joueur (4 max, distinctes et accessibles) : violet, cyan, ambre, rose.
 
@@ -28,6 +31,7 @@ Couleurs par joueur (4 max, distinctes et accessibles) : violet, cyan, ambre, ro
 - Titres : **Space Grotesk** (caractère, lisible).
 - Texte : **Inter**.
 - Chiffres (scores, minuteurs) : chiffres tabulaires pour éviter les sauts.
+- Polices auto-hébergées (Fontsource) : aucune requête vers un service tiers.
 
 ## Mouvement
 
